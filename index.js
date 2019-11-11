@@ -7,7 +7,7 @@ const app = express();
 const PORT = 3001;
 app.use(bodyParser.urlencoded({ extended: false }));
 mongoose.connect(config.db, {useNewUrlParser: true, useUnifiedTopology: true})
-  .then(() => console.log("Connected"))
+  .then(() => console.log(`Connected to DB ${config.db}`))
   .catch(error => console.log(error));
 
 const TodoList = mongoose.model("TodoList", {
@@ -17,6 +17,11 @@ const TodoList = mongoose.model("TodoList", {
     type: Boolean,
     default: false,
   },
+});
+
+app.use(function (req, res, next) {
+  res.setHeader('Access-Control-Allow-Origin', 'http://localhost:8081');
+  next();
 });
 
 app.get("/api/todo", (req, res) => {
