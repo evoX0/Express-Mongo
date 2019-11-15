@@ -1,6 +1,6 @@
-const { TodoList } = require("../../models/todo");
+const TodoList = require("../../models/todo");
 
-module.exports = app => {
+const todoRoutes = app => {
   app.get("/api/todo", (req, res) => {
     TodoList.find({})
       .then(data => res.send({data}))
@@ -33,3 +33,5 @@ module.exports = app => {
       .catch(err => res.send(err));
   });
 };
+
+module.exports = todoRoutes;

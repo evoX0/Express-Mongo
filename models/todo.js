@@ -15,4 +15,4 @@ const TodoList = mongoose.model("TodoList", {
   },
 });
 
-module.exports.TodoList = TodoList;
+module.exports = TodoList;
