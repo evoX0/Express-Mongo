@@ -1,2 +1,5 @@
 # Express-Mongo
-Node JS application win express and mongo db
+Node JS application with express and mongo db
+
+- npm install or yarn
+- npm start
